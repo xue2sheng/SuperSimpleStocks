@@ -1,6 +1,8 @@
 # Super Simple Stocks 
 
-JPMorgan Super Simple Stocks Assignment for a fake Global Beverage Corporation Exchange 
+JPMorgan Super Simple Stocks Assignment for a fake Global Beverage Corporation Exchange.
+
+Further details at [Assigment PDF](SuperSimpleStocks.pdf).
 
 ![Summary](image/summary.png)
 <!-- java -jar /opt/plantuml/plantuml.jar README.md -o images -->
@@ -8,11 +10,15 @@ JPMorgan Super Simple Stocks Assignment for a fake Global Beverage Corporation E
 @startuml summary.png
 top to bottom direction
 skinparam packageStyle rect
-rectangle "Launch\ndifferent tasks" {
+rectangle "All Share Index" {
 }
 @enduml
 -->
 
+*Note:* Those diagrams are generated from README **markdown** files thanks to [PlantUML](http://plantuml.com) with the following command:
+
+      java -jar /opt/plantuml/plantuml.jar README.md -o images
+       
 ## Requirements
 
 
