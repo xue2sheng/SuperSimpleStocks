@@ -1,6 +1,6 @@
-# Minitasks
+# Super Simple Stocks 
 
-Infrastructure to load small tasks and manage them 
+JPMorgan Super Simple Stocks Assignment for a fake Global Beverage Corporation Exchange 
 
 ![Summary](image/summary.png)
 <!-- java -jar /opt/plantuml/plantuml.jar README.md -o images -->
@@ -17,7 +17,7 @@ rectangle "Launch\ndifferent tasks" {
 
 *Doxygen/Latex/Graphviz/Plantuml* tools are needed to generate documentation. If you are not interested in that step, just do not execute **make doc** or **make image** optional targets.
 
-This project is based on **C++14** standard (g++ >= 5.2, clang++ >= 3.8, apple clang++ >= 7.0), latest **boost** libraries (>=1.58), latest **ZeroMQ** (with wrappers *czmq* & *czmqpp*) and expected as well a modern *cmake* (>=3.5). Special mention to superb **Ole Christian Eidheim**'s [libraries](eidheim) based on **boost::asio** at [Simple-Web-Server](https://github.com/eidheim/Simple-Web-Server).
+This project is based on **C++14** standard (g++ >= 5.2, clang++ >= 3.8, apple clang++ >= 7.0), latest **boost** libraries (>=1.58) and expected as well a modern *cmake* (>=3.5). 
 
 Hence, if you work on an updated develop environment, i.e, *Debian sid*, you are supposed to get by default the correct versions:
 
@@ -92,4 +92,91 @@ If only documentation happens to be required, it's possible just to generete & d
        cmake -DJUST_DOCUMENTATION=True -DPDF_FILE=/usr/share/nginx/html/example.pdf \
        -DHTML_DIR=/usr/share/nginx/html/example .. && make install_doc
 
+## Example
 
+Compiling & executing a mock apps and unit tests with the following command on a **MacBookPro** with its default *Apple clang++** compiler. On macOS you can choose to work with its **Homebrew** *g++-6* compiler but don't forget to point to the correct version of *boost* libraries (differentc compilers mean usually different **boost** libarries location).
+
+        bash -c "rm -rf build && mkdir build && cd build && \
+        cmake .. && make && make install && \
+        /usr/local/SuperSimpleStocks &&  /usr/local/unitTest --log_level=message"
+
+Your output should be similar to:
+
+```'
+-- The CXX compiler identification is AppleClang 7.3.0.7030031
+-- Check for working CXX compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++
+-- Check for working CXX compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- VERSION_INFO: git@github.com:xue2sheng/SuperSimpleStocks.git master 067c08b [Thu Aug  4 22:29:00 IST 2016] user@MacBookPro.local
+-- DOXYFILE_PROJECT_NUMBER: 0.0.1_067c08b
+-- Boost version: 1.60.0
+-- Apple Clang FLAGS: -std=c++14 -Wall -Wno-unused-local-typedefs -Wno-deprecated-declarations -stdlib=libc++ -g
+-- Boost version: 1.60.0
+-- Found the following Boost libraries:
+--   unit_test_framework
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/user/Code/JPMorgan/SuperSimpleStocks/build
+Scanning dependencies of target SuperSimpleStocks
+[ 25%] Building CXX object src/CMakeFiles/SuperSimpleStocks.dir/main.cpp.o
+[ 50%] Linking CXX executable SuperSimpleStocks
+[ 50%] Built target SuperSimpleStocks
+Scanning dependencies of target unitTest
+[ 75%] Building CXX object test/CMakeFiles/unitTest.dir/testMain.cpp.o
+[100%] Linking CXX executable unitTest
+[100%] Built target unitTest
+[ 50%] Built target SuperSimpleStocks
+[100%] Built target unitTest
+Install the project...
+-- Install configuration: ""
+-- Installing: /usr/local/SuperSimpleStocks
+-- Installing: /usr/local/unitTest
+
+Thu Aug  4 22:29:05 2016
+ GBCE All Share Index = 156.412
+Thu Aug  4 22:29:05 2016
+ GBCE All Share Index = 152.339
+Thu Aug  4 22:29:06 2016
+ GBCE All Share Index = 146.417
+Thu Aug  4 22:29:06 2016
+ GBCE All Share Index = 156.761
+Thu Aug  4 22:29:07 2016
+ GBCE All Share Index = 108.91
+
+ALE: Common, last_dividend = 23, par_value = 60, fixed_dividend = 0, price = 171.978, dividend yield = 0.133738, P/E ratio = 7.4773, number of trades = 10, stock price = 171.978
+GIN: Preferred, last_dividend = 8, par_value = 100, fixed_dividend = 0.02, price = 156.408, dividend yield = 0.0127871, P/E ratio = 19.551, number of trades = 10, stock price = 156.408
+JOE: Common, last_dividend = 13, par_value = 250, fixed_dividend = 0, price = 158.761, dividend yield = 0.0818841, P/E ratio = 12.2124, number of trades = 10, stock price = 158.761
+POP: Common, last_dividend = 8, par_value = 100, fixed_dividend = 0, price = 185.686, dividend yield = 0.0430834, P/E ratio = 23.2108, number of trades = 10, stock price = 185.686
+TEA: Common, last_dividend = 0, par_value = 100, fixed_dividend = 0, price = 19.3232, dividend yield = 0, P/E ratio = inf, number of trades = 10, stock price = 19.3232
+
+Running 4 test cases...
+
+Several test cases at Thu Aug  4 22:29:07 2016
+VERSION_INFO: git@github.com:xue2sheng/SuperSimpleStocks.git master 067c08b [Thu Aug  4 22:29:00 IST 2016] user@MacBookPro.local
+
+Tests on 'Trade' class
+   Insert a value
+   Clear all values
+   Insert 10 values, one each 500 msec
+   Check out stock price formula
+   Clear only ald trades
+
+Tests on 'Stock' class
+   Create Common Stock
+   Check common dividend yield formula
+   Create Preferred Stock
+   Check preferred dividend yield formula
+   Create Stock with positive dividend
+   Check P/E Ratio formula
+   Create Stock with zero dividend
+   Check P/E Ratio formula now is infinity 
+
+Tests on 'GBCE' class
+   Create 'Global Beverage Corporation Exchange' class 
+   Check GDCE All Share Index formula
+
+*** No errors detected
+```

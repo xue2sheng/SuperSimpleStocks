@@ -18,7 +18,7 @@ enable_testing()
 # recursive call to code folders
 add_subdirectory(src)
 add_subdirectory(test)
-add_subdirectory(doc)
+#add_subdirectory(doc)
 
 # from "make install" task generate basic package
 set(CPACK_GENERATOR "TGZ")
