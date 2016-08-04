@@ -1,10 +1,8 @@
 # Super Simple Stocks 
 
-JPMorgan Super Simple Stocks Assignment for a fake Global Beverage Corporation Exchange.
+JPMorgan Super Simple Stocks Assignment for a fake Global Beverage Corporation Exchange. Further details at [Assigment PDF](SuperSimpleStocks.pdf).
 
-Further details at [Assigment PDF](SuperSimpleStocks.pdf).
-
-![Summary](image/summary.png)
+![Summary](images/summary.png)
 <!-- java -jar /opt/plantuml/plantuml.jar README.md -o images -->
 <!--
 @startuml summary.png
