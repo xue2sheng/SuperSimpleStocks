@@ -18,10 +18,10 @@ enable_testing()
 # recursive call to code folders
 add_subdirectory(src)
 add_subdirectory(test)
-#add_subdirectory(doc)
+add_subdirectory(doc)
 
 # from "make install" task generate basic package
-#set(CPACK_GENERATOR "TGZ")
-#set(CPACK_SET_DESTDIR ON)
-#set(CPACK_PACKAGING_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
-#include(CPack)
+set(CPACK_GENERATOR "TGZ")
+set(CPACK_SET_DESTDIR ON)
+set(CPACK_PACKAGING_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
+include(CPack)

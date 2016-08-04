@@ -52,8 +52,8 @@ if(HTML_DIR STREQUAL "")
 endif()
 
 ## default PDF header
-set( DOXYFILE_PROJECT_NAME "Minitasks")
-set( DOXYFILE_PROJECT_BRIEF "Infrastructure to load small tasks and manage them")
+set( DOXYFILE_PROJECT_NAME "SuperSimpleStocks")
+set( DOXYFILE_PROJECT_BRIEF "JPMorgan Super Simple Stocks Assignment for a fake Global Beverage Corporation Exchange")
 
 ############
 # Git info #
