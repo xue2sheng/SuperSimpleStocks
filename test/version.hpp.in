@@ -1,0 +1,14 @@
+#ifndef VERSION_HPP
+#define VERSION_HPP
+
+/* Avoid GNU Compiler to optimize out */
+#if _GNUC_
+/// \brief static const VERSION_INFO to be checked out using 'strings' command
+static const char* VERSION_INFO __attribute__((used)) __attribute__((nocommon)) = "VERSION_INFO: @VERSION_INFO@";  
+#else
+/// \brief static const VERSION_VERSION to be checked out using 'strings' command
+static const char* VERSION_INFO = "VERSION_INFO: @VERSION_INFO@";
+#endif
+
+
+#endif // VERSION_HPP

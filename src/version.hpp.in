@@ -1,0 +1,7 @@
+#ifndef VERSION_HPP
+#define VERSION_HPP
+
+/// \brief static const VERSION_INFO to be checked out using 'strings' command
+static const char* VERSION_INFO __attribute__((used)) __attribute__((nocommon)) = "VERSION_INFO: @VERSION_INFO@";  
+
+#endif // VERSION_HPP
