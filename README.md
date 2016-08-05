@@ -84,6 +84,8 @@ The main approach for this assigment was to make it easier to test and to keep a
 
   So we trade memory in order to spare costly indirection through pointers. Of course, without a serious measurement on the real app we don't know if that extra bloat code can provoke cache misses and worsen the scenario.
 
+![Classes](images/classes.png)
+
 * Use (and abuse) of *inlining* code.
 
   Previous approaches are easier tackle when the code is **local**. As well inlining in C++ implies to keep declaration and defenition close, leading to almost *auto sufficient* header files.
