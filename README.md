@@ -40,6 +40,17 @@ Calculate -> Stocks : p/e ratio
 Stocks -> SharesIndex : p/e ratio 
 SharesIndex -> CLIENT : p/e ratio 
 
+== Stock Price based on trades recorded in past 15 minutes ==
+CLIENT -> SharesIndex : ask stock price 
+SharesIndex -> Stocks
+Stocks -> Trades : only in past\n15 minutes
+Trades -> Calculate
+Calculate -> InMemory : only in past\n15 minutes
+InMemory -> Calculate : data 
+Calculate -> Trades : stock price 
+Trades -> Stocks : stock price 
+Stocks -> SharesIndex : stock price 
+SharesIndex -> CLIENT : stock price 
 
 @enduml
 -->
