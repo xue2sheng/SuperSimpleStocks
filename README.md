@@ -6,10 +6,19 @@ JPMorgan Super Simple Stocks Assignment for a fake Global Beverage Corporation E
 <!-- java -jar /opt/plantuml/plantuml.jar README.md -o images -->
 <!--
 @startuml summary.png
-top to bottom direction
-skinparam packageStyle rect
-rectangle "All Share Index" {
-}
+
+hide footbox
+
+actor CLIENT 
+boundary SharesIndex
+entity Stocks
+entity Trades
+control Calculate 
+database InMemory 
+
+CLIENT -> SharesIndex : ask calculation 
+SharesIndex -> CLIENT : All Shares Index 
+
 @enduml
 -->
 

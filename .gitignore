@@ -29,7 +29,13 @@
 
 # cmake
 build/
- 
+
+# mac
+.DS_Store
+
+# vi
+.*.swp 
+
 # netbeans
 nbproject/
 
