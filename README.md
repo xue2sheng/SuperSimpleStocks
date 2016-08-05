@@ -2,7 +2,6 @@
 
 JPMorgan Super Simple Stocks Assignment for a fake Global Beverage Corporation Exchange. Further details at [Assigment PDF](SuperSimpleStocks.pdf).
 
-![Summary](images/summary.png)
 <!-- java -jar /opt/plantuml/plantuml.jar README.md -o images -->
 <!--
 @startuml summary.png
@@ -54,6 +53,8 @@ The main approach for this assigment was to make it easier to test and to keep a
   Being **pow** function expensive at **Geometric Mean** and supposed that **All Share Index** method will be invoked more offen than changes among all the prices needed to calculate it, make sense to tackle one approach of reusing even intermidary values. 
 
   So only that *Geometric Mean* will be recalculated when prices suffer changes. Furthermore, intermedary values for *pow* calls on **prices** will be reused if possible.
+
+![Summary](images/summary.png)
 
 * Avoid complex *OOP* in favor of simple schemas.  
 
