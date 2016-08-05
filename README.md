@@ -55,6 +55,17 @@ SharesIndex -> CLIENT : stock price
 @enduml
 -->
 
+<!--
+@startuml classes.png
+
+class Car
+Driver - Car : drives > 
+Car *- Wheel : have 4 > 
+Car -- Person : < owns
+
+@enduml
+-->
+
 ## Approach and simplifications
 
 The main approach for this assigment was to make it easier to test and to keep an eye in possible optimizations. Being Super Simple Stocks a toy app, some of the following approaches are overkilling:
@@ -69,9 +80,9 @@ The main approach for this assigment was to make it easier to test and to keep a
 
 * Avoid complex *OOP* in favor of simple schemas.  
 
-  Instead of dealing with **virtual tables of pointers* and associated hierarchy utilities, a humble 'if' might do the trick for *Common vs Preferred xtocks* selections on **Dividend Yield**. 
+  Instead of dealing with **virtual tables of pointers** and associated hierarchy utilities, a humble 'if' might do the trick for *Common vs Preferred xtocks* selections on **Dividend Yield**. 
 
-  So we trade memory in order to spare costly indirection through pointers. Of course, without a serious measurement on the real app we don't know if that extra bloat code can provoke cache misses and worse the scenario.
+  So we trade memory in order to spare costly indirection through pointers. Of course, without a serious measurement on the real app we don't know if that extra bloat code can provoke cache misses and worsen the scenario.
 
 * Use (and abuse) of *inlining* code.
 
