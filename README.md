@@ -15,7 +15,31 @@ rectangle "All Share Index" {
 
 ## Approach and simplifications
 
-The main approach for this assigment was to make it easier to test and to keep an eye in possible optimizations, typical fieldground for *C++* apps. But some of them are  cleary overkilling:
+The main approach for this assigment was to make it easier to test and to keep an eye in possible optimizations. Being Super Simple Stocks a toy app, some of the following approaches are overkilling:
+
+* Avoid to calculate expensive methods by reusing valid data.
+
+  Being **pow** function expensive at **Geometric Mean** and supposed that **All Share Index** method will be invoked more offen than changes among all the prices needed to calculate it, make sense to tackle one approach of reusing even intermidary values. 
+
+  So only that *Geometric Mean* will be recalculated when prices suffer changes. Furthermore, intermedary values for *pow* calls on **prices** will be reused if possible.
+
+* Avoid complex *OOP* in favor of simple schemas.  
+
+  Instead of dealing with **virtual tables of pointers* and associated hierarchy utilities, a humble 'if' might do the trick for *Common vs Preferred xtocks* selections on **Dividend Yield**. 
+
+  So we trade memory in order to spare costly indirection through pointers. Of course, without a serious measurement on the real app we don't know if that extra bloat code can provoke cache misses and worse the scenario.
+
+* Use (and abuse) of *inlining* code.
+
+  Previous approaches are easier tackle when the code is **local**. As well inlining in C++ implies to keep declaration and defenition close, leading to almost *auto sufficient* header files.
+
+  So our code can be unit tested easier when it's just a set of *headers* file. In the real world, they will be more complex binaries, supposely **libraries**.
+
+* Unified generation framework.
+
+  An attempt was made to just use the generation *CMake* tool to **build, test, package and even document** the application.  Pending **Doxygen** documentation and its conversion into **PDF** or **HTML** documentation.
+
+  So documentation is mainly based on **markdown** README at this stage.
 
 ## Requirements
 
