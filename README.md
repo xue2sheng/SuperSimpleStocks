@@ -16,8 +16,31 @@ entity Trades
 control Calculate 
 database InMemory 
 
-CLIENT -> SharesIndex : ask calculation 
+== Shares Index ==
+CLIENT -> SharesIndex : ask index 
+SharesIndex -> Calculate
+Stocks -> Calculate
+Calculate -> InMemory : Reuse already\ncalculated values
+InMemory -> Calculate : index
+Calculate -> SharesIndex : index
 SharesIndex -> CLIENT : All Shares Index 
+
+== Dividend Yield ==
+CLIENT -> SharesIndex : ask dividend yield 
+SharesIndex -> Stocks : ask dividend yield
+Stocks -> Calculate 
+Calculate -> Stocks : Common or Preferred
+Stocks -> SharesIndex : Dividend Yield\nCommon or Preferred 
+SharesIndex -> CLIENT : Dividend Yield
+
+== P/E Ratio ==
+CLIENT -> SharesIndex : ask p/e ratio 
+SharesIndex -> Stocks : ask p/e ratio 
+Stocks -> Calculate 
+Calculate -> Stocks : p/e ratio 
+Stocks -> SharesIndex : p/e ratio 
+SharesIndex -> CLIENT : p/e ratio 
+
 
 @enduml
 -->
