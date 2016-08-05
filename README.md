@@ -58,10 +58,19 @@ SharesIndex -> CLIENT : stock price
 <!--
 @startuml classes.png
 
-class Car
-Driver - Car : drives > 
-Car *- Wheel : have 4 > 
-Car -- Person : < owns
+class GlobalBeverageCorporationExchange 
+GlobalBeverageCorporationExchange o- Stock :  < std::map
+GlobalBeverageCorporationExchange : allShareIndex()
+
+class Stock {
+-trade
+}
+Stock *- Trade : < composition
+Stock : dividendYield() 
+Stock : p_e_ratio()
+
+Trade o- trade_data : < std::multimap
+Trade : stockPrice()
 
 @enduml
 -->
@@ -180,7 +189,7 @@ See further details at [External Project](https://github.com/xue2sheng/minitasks
 
 ## Example
 
-Compiling & executing a mock apps and unit tests with the following command on a **MacBookPro** with its default *Apple clang++** compiler. On macOS you can choose to work with its **Homebrew** *g++-6* compiler but don't forget to point to the correct version of *boost* libraries (differentc compilers mean usually different **boost** libarries location).
+Compiling & executing a mock apps and unit tests with the following command on a **MacBookPro** with its default **Apple clang++** compiler. On macOS you can choose to work with its **Homebrew** *g++-6* compiler but don't forget to point to the correct version of *boost* libraries (differentc compilers mean usually different **boost** libarries location).
 
         bash -c "rm -rf build && mkdir build && cd build && \
         cmake .. && make && make install && \
